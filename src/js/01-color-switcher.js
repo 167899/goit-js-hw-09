@@ -11,12 +11,16 @@ const onClick = () => {
   startId = setInterval(() => {
     body.setAttribute('style', `background-color:${getRandomHexColor()}`);
   }, 1000);
-  btnStart.removeEventListener('click', onClick);
+  // btnStart.removeEventListener('click', onClick);
+  btnStart.disabled = true;
+  btnStop.disabled = false;
 };
 
 btnStart.addEventListener('click', onClick);
 
 btnStop.addEventListener('click', () => {
   clearInterval(startId);
-  btnStart.addEventListener('click', onClick);
+  // btnStart.addEventListener('click', onClick);
+  btnStart.disabled = false;
+  btnStop.disabled = true;
 });
